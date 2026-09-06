@@ -1,0 +1,33 @@
+# .pre-commit-config.yaml (Consuming Repo Root)
+
+# Global configurations
+fail_fast: false            # Set to true to stop running hooks after the first failure
+
+repos:
+  # 1. Your Centralised Custom Hooks
+  - repo: git@github.com:Uhj45/Pre-Commit_Scripts.git
+    rev: 0.0.11              # Replace with your actual Git tag, release, or SHA
+    hooks:
+      # ============================
+      # Common hooks from bin/common
+      # ============================
+      - id: common-jira-id
+      - id: common-lint
+      # ============================
+      # Hub team's hooks from bin/hub
+      # ============================
+      - id: hub-test-scanner
+      # ==================================
+      # Server team's hooks from bin/server
+      # ==================================
+       - id: server-db-check
+      # ==================================
+      # QA team's hooks from bin/qa
+      # ==================================
+       - id: qa-test-scanner
+      # ==================================
+      # Cloud team's hooks from bin/cloud
+      # ==================================
+        # Optional: You can override settings or pass arguments here
+        args: [--verbose]
+
